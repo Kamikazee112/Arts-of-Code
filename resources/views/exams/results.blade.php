@@ -7,7 +7,7 @@
         <!-- Results Summary Card -->
         <div class="bg-white border border-slate-100 rounded-3xl p-8 sm:p-10 text-center mb-10 shadow-[0_10px_30px_-5px_rgba(15,23,42,0.05)] relative overflow-hidden">
             <!-- Decorative soft background glow based on result -->
-            <div class="absolute inset-x-0 top-0 h-44 opacity-40 pointer-events-none" 
+            <div class="absolute inset-x-0 top-0 h-44 opacity-40 pointer-events-none"
                  style="background: radial-gradient(circle at 50% 0, {{ $attempt->passed ? 'rgba(16, 185, 129, 0.18)' : 'rgba(239, 68, 68, 0.18)' }}, rgba(255,255,255,0));"></div>
 
             <!-- SVG Score Progress Ring -->
@@ -162,13 +162,13 @@
                 <div class="space-y-6">
                     @foreach($attempt->quizAnswers as $index => $answer)
                         <div class="bg-white border {{ $answer->is_correct ? 'border-emerald-100/80 shadow-[0_4px_20px_rgba(16,185,129,0.02)]' : 'border-rose-100/80 shadow-[0_4px_20px_rgba(239,68,68,0.02)]' }} rounded-3xl overflow-hidden transition-all duration-300 hover:shadow-md border-l-4 {{ $answer->is_correct ? 'border-l-emerald-500' : 'border-l-rose-500' }} p-6">
-                            
+
                             <!-- Question Header (Q No + Points) -->
                             <div class="flex items-center justify-between mb-4">
                                 <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest bg-slate-50 border border-slate-100 px-2.5 py-1 rounded-lg">
                                     Question {{ sprintf('%02d', $index + 1) }}
                                 </span>
-                                
+
                                 @if($answer->is_correct)
                                     <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-50 text-emerald-700 rounded-xl text-xs font-bold border border-emerald-100">
                                         <svg class="w-3.5 h-3.5 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">

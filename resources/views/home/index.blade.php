@@ -14,7 +14,7 @@
             <span class="w-1.5 h-1.5 bg-indigo-500 rounded-full animate-pulse"></span>
             Community Platform for Coders
         </div>
-        <h1 class="text-[38px] md:text-[48px] font-extrabold text-[var(--text)] leading-[1.1] tracking-tight mb-4 bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 bg-clip-text text-transparent">
+        <h1 class="text-[38px] md:text-[48px] font-extrabold text-[var(--text)] leading-[1.1] tracking-tight mb-4 bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 bg-clip-text text-transparent hero-title">
             Arts Of Code
         </h1>
         <p class="text-[16px] md:text-[17px] text-[var(--muted)] mb-8 max-w-[540px] leading-relaxed mx-auto md:mx-0 font-medium">

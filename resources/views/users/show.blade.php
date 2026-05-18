@@ -6,12 +6,13 @@
 <div class="max-w-4xl mx-auto py-4">
     
     <!-- Profile Card Container -->
-    <div class="card overflow-hidden mb-8 relative border border-slate-200/80 shadow-sm bg-white">
-        <!-- Elegant Dual-Tone Cover: Blue split vertically down the middle -->
-        <div class="h-36 border-b border-slate-100 relative overflow-hidden" style="background: linear-gradient(90deg, #3b82f6 50%, #f8fafc 50%);">
+    <div class="card overflow-hidden mb-8 relative border border-slate-200/80 shadow-sm" style="background-color: var(--surface);">
+        <!-- Premium Indigo-to-Violet Gradient Cover -->
+        <div class="h-36 border-b border-slate-100/10 relative overflow-hidden" style="background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #8b5cf6 100%);">
             <!-- Subtle modern mesh/grid pattern overlay -->
-            <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(#000 1px, transparent 1px); background-size: 18px 18px;"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-white/10 to-transparent"></div>
+            <div class="absolute inset-0 opacity-[0.06]" style="background-image: radial-gradient(rgba(255,255,255,0.8) 1px, transparent 1px); background-size: 18px 18px;"></div>
+            <!-- Soft vignette overlay for depth -->
+            <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.25) 100%);"></div>
 
             <!-- Floating White Username and Role Badge exactly in the blue box (Desktop only) -->
             <div class="absolute bottom-4 left-[152px] z-20 text-left hidden md:flex flex-col gap-1.5">

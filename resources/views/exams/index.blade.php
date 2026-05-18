@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="max-w-[900px] mx-auto animate-fade-up">
-        
+
         <!-- Page Title Row -->
         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-10 pb-6 border-b border-[var(--border)]">
             <div>
@@ -58,7 +58,7 @@
                                             <span class="badge badge-muted text-[10px] px-2.5 py-0.5 font-bold uppercase">Draft</span>
                                         @endif
                                     </div>
-                                    
+
                                     <!-- Badges Grid -->
                                     <div class="flex flex-wrap gap-2 mb-4">
                                         <span class="badge badge-default text-[11px] px-2.5 py-1 flex items-center gap-1 font-semibold">
@@ -100,7 +100,7 @@
                 <span class="w-1.5 h-6 bg-indigo-500 rounded-full"></span>
                 <h2 class="text-[14px] font-bold uppercase tracking-[0.08em] text-[var(--text)]">Available Challenges</h2>
             </div>
-            
+
             @if(isset($exams) && $exams->count() > 0)
                 <div class="grid grid-cols-1 gap-5">
                     @foreach($exams as $exam)
@@ -110,7 +110,7 @@
                                     <h3 class="text-[19px] font-extrabold text-[var(--text)] tracking-tight">
                                         {{ $exam->title }}
                                     </h3>
-                                    
+
                                     <!-- Meta Badges -->
                                     <div class="flex gap-2">
                                         <span class="badge badge-default text-[11px] px-2.5 py-0.5 flex items-center gap-1 font-semibold">
@@ -130,7 +130,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                
+
                                 @if($exam->description)
                                     <p class="text-[13.5px] text-[var(--text-2)] leading-relaxed max-w-[580px] mb-3">
                                         {{ Str::limit($exam->description, 130) }}
@@ -167,7 +167,7 @@
                                                     ✗ Failed ({{ round($attempts->score) }}%)
                                                 </span>
                                             @endif
-                                            
+
                                             @if(!$exam->max_attempts || \App\Models\QuizAttempt::where('user_id', auth()->id())->where('exam_id', $exam->id)->count() < $exam->max_attempts)
                                                 <a href="/exams/{{ $exam->id }}/take" class="btn-sm btn-sm-edit text-[12px] px-3.5 py-1.5" style="border-radius: 8px;">
                                                     Retake Challenge

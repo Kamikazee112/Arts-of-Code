@@ -3,14 +3,15 @@
 @section('title', 'Edit Article - Arts Of Code')
 
 @section('content')
-    <div class="max-w-[800px] mx-auto">
-        <!-- Page Title -->
-        <div class="mb-8">
-            <h1 class="text-[22px] font-medium text-[var(--text)]">Edit Article</h1>
-        </div>
+    <div class="max-w-[900px] mx-auto">
+        <div class="card p-6">
+            <!-- Page Title -->
+            <div class="mb-6">
+                <h1 class="text-[22px] font-medium text-[var(--text)]">Edit Article</h1>
+            </div>
 
-        <!-- Form -->
-        <form method="POST" action="/articles/{{ $article->slug }}">
+            <!-- Form -->
+            <form method="POST" action="/articles/{{ $article->slug }}">
             @csrf
             @method('PUT')
 
@@ -37,16 +38,15 @@
             <!-- Categories Selection -->
             <div class="mb-6">
                 <label class="block text-[13px] font-medium text-[var(--text)] mb-2">Categories</label>
-                <div class="space-y-2">
+                <div class="category-grid">
                     @php
                         $categories = \App\Models\Category::all();
                         $selectedCategories = $article->categories->pluck('id')->toArray();
                     @endphp
                     @if($categories->count() > 0)
                         @foreach($categories as $category)
-                            <label
-                                class="flex items-center gap-2 p-2 border border-[var(--border)] rounded hover:bg-[var(--bg)] cursor-pointer">
-                                <input type="checkbox" name="categories[]" value="{{ $category->id }}" {{ in_array($category->id, old('categories', $selectedCategories)) ? 'checked' : '' }} class="w-4 h-4">
+                            <label class="category-item">
+                                <input type="checkbox" name="categories[]" value="{{ $category->id }}" {{ in_array($category->id, old('categories', $selectedCategories)) ? 'checked' : '' }}>
                                 <span class="text-sm text-[var(--text)]">{{ $category->name }}</span>
                             </label>
                         @endforeach
@@ -80,6 +80,7 @@
                     Save Changes
                 </button>
             </div>
-        </form>
+            </form>
+        </div>
     </div>
 @endsection

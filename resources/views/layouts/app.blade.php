@@ -54,6 +54,7 @@
             --info-bg:     #ECFEFF;
 
             /* Borders & Shadows */
+            --color-white:  #FFFFFF;
             --border:      #E2E8F0;
             --border-2:    #CBD5E1;
             --shadow-sm:   0 1px 3px rgba(15,23,42,0.04), 0 1px 2px rgba(15,23,42,0.03);
@@ -64,6 +65,305 @@
             --radius-sm:   8px;
             --radius:      14px;
             --radius-lg:   20px;
+        }
+
+        /* =============================================
+           DARK THEME TOKENS (overrides when `.dark` applied)
+        ============================================= */
+        .dark {
+            --color-white: #FFFFFF; /* Keep white crisp white for specific white components */
+            --bg:          #071027; /* page background */
+            --surface:     #0F2430; /* cards, panels - slightly lighter than page bg */
+            --surface-2:   #112A36; /* secondary surfaces */
+
+            --text:        #F5FBFF; /* primary text, brighter for legibility */
+            --text-2:      #D7E6F2; /* secondary text */
+            --muted:       #9FB0C1; /* muted labels */
+
+            --accent:      #8B5CF6;
+            --accent-hover:#7C3AED;
+            --accent-light: rgba(139,92,246,0.08);
+            --accent-ring: rgba(139,92,246,0.16);
+
+            --brand-gradient:       linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
+            --brand-gradient-hover: linear-gradient(135deg, #7C3AED 0%, #5B21B6 100%);
+
+            --success:     #34D399;
+            --success-bg:  rgba(52, 211, 153, 0.1);
+            --danger:      #F87171;
+            --danger-bg:   rgba(248, 113, 113, 0.1);
+            --warning:     #38BDF8;
+            --warning-bg:  rgba(56, 189, 248, 0.1);
+            --info:        #06B6D4;
+            --info-bg:     rgba(6, 182, 212, 0.1);
+
+            --border:      #26313b; /* lighter border for separation */
+            --border-2:    #394a55;
+            --shadow-sm:   0 1px 3px rgba(2,6,23,0.6);
+            --shadow-md:   0 6px 20px -4px rgba(2,6,23,0.6);
+            --shadow-lg:   0 20px 30px -8px rgba(2,6,23,0.6);
+        }
+
+        /* Utility overrides for any classes that include 'white' in their name
+           These ensure Tailwind-generated white utilities render as dark-appropriate
+           greys when `.dark` is active, without editing compiled assets. */
+        .dark [class*="bg-white"],
+        .dark [class*="from-white"],
+        .dark [class*="via-white"],
+        .dark [class*="to-white"] {
+            /* make white utilities show as a subtle lighter tint on top of surface */
+            background-color: rgba(255,255,255,0.03) !important;
+            background-image: none !important;
+        }
+
+        .dark [class*="text-white"] {
+            color: var(--text) !important;
+        }
+
+        .dark [class*="border-white"] {
+            border-color: var(--border) !important;
+        }
+
+        /* small background-opacity utilities like bg-white/5 or odd:bg-white/2
+           will also match the attribute selector above; for subtle variants we
+           reduce contrast by applying a semi-transparent charcoal instead */
+        .dark [class*="bg-white\/"],
+        .dark [class*="bg-white\\/"] {
+            background-color: rgba(255,255,255,0.02) !important;
+        }
+
+        /* ensure cards and panels remain distinct from page bg */
+        .dark .card { background: var(--surface) !important; border-color: var(--border) !important; }
+        .dark .badge-default { background: rgba(255,255,255,0.03); color: var(--accent); }
+        .dark .prose-content { color: var(--text-2); }
+        .dark .hero-title { background-image: linear-gradient(135deg, #FFFFFF 0%, #C7D2FE 50%, #FFFFFF 100%) !important; }
+        /* Make text inside gray panels/cards pale white for better contrast */
+        .dark .card {
+            color: var(--text-2);
+        }
+
+        /* =============================================
+           GLOBAL TAILWIND UTILITY OVERRIDES FOR DARK MODE
+           Corrects dark-text-on-dark-bg issues across all views
+        ============================================= */
+
+        /* 1. Primary Text Overrides (slate, gray, zinc, neutral, custom black -> light legibility) */
+        .dark [class*="text-slate-950"],
+        .dark [class*="text-slate-900"],
+        .dark [class*="text-slate-800"],
+        .dark [class*="text-slate-700"],
+        .dark [class*="text-gray-950"],
+        .dark [class*="text-gray-900"],
+        .dark [class*="text-gray-800"],
+        .dark [class*="text-gray-700"],
+        .dark [class*="text-zinc-950"],
+        .dark [class*="text-zinc-900"],
+        .dark [class*="text-zinc-800"],
+        .dark [class*="text-zinc-700"],
+        .dark [class*="text-neutral-950"],
+        .dark [class*="text-neutral-900"],
+        .dark [class*="text-neutral-800"],
+        .dark [class*="text-neutral-700"],
+        .dark [class*="text-[#0f172a]"],
+        .dark [class*="text-[#0F172A]"],
+        .dark .text-\[\#0f172a\],
+        .dark .text-\[\#0F172A\],
+        .dark .text-black {
+            color: var(--text) !important;
+        }
+
+        /* 2. Secondary Text Overrides (slate, gray, zinc, neutral 600/500 -> secondary text) */
+        .dark [class*="text-slate-600"],
+        .dark [class*="text-slate-500"],
+        .dark [class*="text-gray-600"],
+        .dark [class*="text-gray-500"],
+        .dark [class*="text-zinc-600"],
+        .dark [class*="text-zinc-500"],
+        .dark [class*="text-neutral-600"],
+        .dark [class*="text-neutral-500"] {
+            color: var(--text-2) !important;
+        }
+
+        /* 3. Muted Text Overrides (400 level -> muted labels) */
+        .dark [class*="text-slate-400"],
+        .dark [class*="text-gray-400"],
+        .dark [class*="text-zinc-400"],
+        .dark [class*="text-neutral-400"] {
+            color: var(--muted) !important;
+        }
+
+        /* 4. Primary Colored Dark Texts (indigo, emerald, rose, amber -> glowing light text) */
+        .dark [class*="text-indigo-900"],
+        .dark [class*="text-indigo-950"],
+        .dark [class*="text-indigo-800"] {
+            color: #C7D2FE !important; /* indigo-200 */
+        }
+        .dark [class*="text-emerald-900"],
+        .dark [class*="text-emerald-950"],
+        .dark [class*="text-emerald-800"] {
+            color: #A7F3D0 !important; /* emerald-200 */
+        }
+        .dark [class*="text-rose-900"],
+        .dark [class*="text-rose-950"],
+        .dark [class*="text-rose-800"],
+        .dark [class*="text-danger-900"],
+        .dark [class*="text-danger-950"],
+        .dark [class*="text-danger-800"] {
+            color: #FECDD3 !important; /* rose-200 */
+        }
+        .dark [class*="text-amber-900"],
+        .dark [class*="text-amber-950"],
+        .dark [class*="text-amber-800"] {
+            color: #FDE68A !important; /* amber-200 */
+        }
+
+        /* Glowing colored text and icon overrides for 500/600 levels in dark mode */
+        .dark [class*="text-indigo-500"],
+        .dark [class*="text-indigo-600"] {
+            color: #C7D2FE !important;
+        }
+        .dark [class*="text-purple-500"],
+        .dark [class*="text-purple-600"] {
+            color: #E9D5FF !important; /* purple-200 */
+        }
+        .dark [class*="text-cyan-500"],
+        .dark [class*="text-cyan-600"] {
+            color: #A5F3FC !important; /* cyan-200 */
+        }
+        .dark [class*="text-emerald-500"],
+        .dark [class*="text-emerald-600"] {
+            color: #A7F3D0 !important;
+        }
+        .dark [class*="text-rose-500"],
+        .dark [class*="text-rose-600"],
+        .dark [class*="text-red-500"],
+        .dark [class*="text-red-600"] {
+            color: #FECDD3 !important;
+        }
+        .dark [class*="text-blue-500"],
+        .dark [class*="text-blue-600"] {
+            color: #BFDBFE !important; /* blue-200 */
+        }
+        .dark [class*="text-violet-500"],
+        .dark [class*="text-violet-600"] {
+            color: #DDD6FE !important; /* violet-200 */
+        }
+        .dark [class*="text-amber-500"],
+        .dark [class*="text-amber-600"] {
+            color: #FDE68A !important;
+        }
+
+        /* 5. Light/Gray Backgrounds Overrides (slate, gray, zinc, neutral -> surface-2) */
+        .dark [class*="bg-slate-50"],
+        .dark [class*="bg-slate-100"],
+        .dark [class*="bg-slate-200"],
+        .dark [class*="bg-slate-300"],
+        .dark [class*="bg-gray-50"],
+        .dark [class*="bg-gray-100"],
+        .dark [class*="bg-gray-200"],
+        .dark [class*="bg-gray-300"],
+        .dark [class*="bg-zinc-50"],
+        .dark [class*="bg-zinc-100"],
+        .dark [class*="bg-zinc-200"],
+        .dark [class*="bg-zinc-300"],
+        .dark [class*="bg-neutral-50"],
+        .dark [class*="bg-neutral-100"],
+        .dark [class*="bg-neutral-200"],
+        .dark [class*="bg-neutral-300"] {
+            background-color: var(--surface-2) !important;
+            background-image: none !important;
+        }
+
+        /* 6. Soft Colored Background Badges (indigo, emerald, amber, rose/red, purple, cyan, blue, violet -> semi-transparent glow) */
+        .dark [class*="bg-indigo-50"],
+        .dark [class*="bg-indigo-100"],
+        .dark [class*="bg-indigo-600/10"] {
+            background-color: rgba(99, 102, 241, 0.15) !important;
+            background-image: none !important;
+        }
+        .dark [class*="bg-emerald-50"],
+        .dark [class*="bg-emerald-100"],
+        .dark [class*="bg-emerald-600/10"] {
+            background-color: rgba(16, 185, 129, 0.15) !important;
+            background-image: none !important;
+        }
+        .dark [class*="bg-amber-50"],
+        .dark [class*="bg-amber-100"],
+        .dark [class*="bg-amber-600/10"] {
+            background-color: rgba(245, 158, 11, 0.15) !important;
+            background-image: none !important;
+        }
+        .dark [class*="bg-rose-50"],
+        .dark [class*="bg-rose-100"],
+        .dark [class*="bg-rose-600/10"],
+        .dark [class*="bg-red-50"],
+        .dark [class*="bg-red-100"],
+        .dark [class*="bg-red-600/10"] {
+            background-color: rgba(239, 68, 68, 0.15) !important;
+            background-image: none !important;
+        }
+        .dark [class*="bg-purple-50"],
+        .dark [class*="bg-purple-100"],
+        .dark [class*="bg-purple-600/10"] {
+            background-color: rgba(139, 92, 246, 0.15) !important;
+            background-image: none !important;
+        }
+        .dark [class*="bg-cyan-50"],
+        .dark [class*="bg-cyan-100"],
+        .dark [class*="bg-cyan-600/10"] {
+            background-color: rgba(6, 182, 212, 0.15) !important;
+            background-image: none !important;
+        }
+        .dark [class*="bg-blue-50"],
+        .dark [class*="bg-blue-100"],
+        .dark [class*="bg-blue-600/10"] {
+            background-color: rgba(59, 130, 246, 0.15) !important;
+            background-image: none !important;
+        }
+        .dark [class*="bg-violet-50"],
+        .dark [class*="bg-violet-100"],
+        .dark [class*="bg-violet-600/10"] {
+            background-color: rgba(109, 40, 217, 0.15) !important;
+            background-image: none !important;
+        }
+
+        /* 7. Border Color Overrides (slate, gray, zinc, neutral borders -> subtle separator) */
+        .dark [class*="border-slate-"],
+        .dark [class*="border-gray-"],
+        .dark [class*="border-zinc-"],
+        .dark [class*="border-neutral-"] {
+            border-color: var(--border) !important;
+        }
+
+        /* 8. Progress Ring SVG Stroke Track Overrides */
+        .dark [class*="stroke-slate-"],
+        .dark [class*="stroke-gray-"],
+        .dark [class*="stroke-zinc-"],
+        .dark [class*="stroke-neutral-"] {
+            stroke: var(--border) !important;
+        }
+
+        /* 9. Light Gradient Overrides (systematically replaces bright gradients with surface background in dark mode to prevent white-on-white text/symbol collision) */
+        .dark [class*="from-slate-50"],
+        .dark [class*="to-slate-100"],
+        .dark [class*="from-indigo-50"],
+        .dark [class*="to-slate-50"],
+        .dark [class*="from-amber-50"],
+        .dark [class*="to-yellow-50"],
+        .dark [class*="from-orange-50"],
+        .dark [class*="to-orange-50"],
+        .dark [class*="from-slate-100"],
+        .dark [class*="to-slate-200"] {
+            background-color: var(--surface-2) !important;
+            background-image: none !important;
+        }
+
+        /* Fallbacks: inline style overrides forcing black color */
+        .dark [style*="color:#000"],
+        .dark [style*="color:#000000"],
+        .dark [style*="color: black"],
+        .dark [style*="color:black"] {
+            color: var(--text) !important;
         }
 
         /* ---- Keyframes ---- */
@@ -147,12 +447,31 @@
         }
 
         /* =============================================
+           CATEGORY / CHECKBOX STYLES
+        ============================================= */
+        .category-grid { display: grid; gap: 10px; }
+        @media (min-width: 768px) { .category-grid { grid-template-columns: repeat(2, 1fr); } }
+
+        .category-item {
+            display: flex; align-items: center; gap: 12px;
+            padding: 10px; border-radius: 10px; background: var(--surface);
+            border: 1px solid var(--border); transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+            cursor: pointer;
+        }
+        .category-item:hover { background: var(--surface-2); transform: translateY(-3px); box-shadow: var(--shadow-sm); }
+
+        .category-item input[type="checkbox"] {
+            width: 18px; height: 18px; accent-color: var(--accent); border-radius: 4px;
+        }
+
+
+        /* =============================================
            BUTTONS
         ============================================= */
         .btn-primary {
             display: inline-flex; align-items: center; justify-content: center; gap: 6px;
             background: var(--brand-gradient);
-            color: #fff !important;
+            color: #FFFFFF !important;
             border: none;
             border-radius: var(--radius-sm);
             padding: 9px 18px;
@@ -162,7 +481,7 @@
             transition: all 0.22s cubic-bezier(0.4,0,0.2,1);
             white-space: nowrap;
         }
-        .btn-primary:hover  { background: var(--brand-gradient-hover); transform: translateY(-2px); box-shadow: 0 8px 22px rgba(99,102,241,0.32); color: #fff !important; }
+        .btn-primary:hover  { background: var(--brand-gradient-hover); transform: translateY(-2px); box-shadow: 0 8px 22px rgba(99,102,241,0.32); color: #FFFFFF !important; }
         .btn-primary:active { transform: translateY(0); }
 
         .btn-outline {
@@ -182,7 +501,7 @@
 
         .btn-danger {
             display: inline-flex; align-items: center; justify-content: center; gap: 6px;
-            background: var(--danger); color: #fff !important;
+            background: var(--danger); color: #FFFFFF !important;
             border: none; border-radius: var(--radius-sm); padding: 9px 18px;
             font-family: inherit; font-size: 14px; font-weight: 700;
             cursor: pointer; text-decoration: none;
@@ -190,7 +509,7 @@
             transition: all 0.22s cubic-bezier(0.4,0,0.2,1);
             white-space: nowrap;
         }
-        .btn-danger:hover  { background: #DC2626; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(220,38,38,0.32); color: #fff !important; }
+        .btn-danger:hover  { background: #DC2626; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(220,38,38,0.32); color: #FFFFFF !important; }
         .btn-danger:active { transform: translateY(0); }
 
         /* Small action buttons */
@@ -205,17 +524,17 @@
         .btn-sm:hover  { transform: translateY(-1px); box-shadow: 0 3px 6px rgba(0,0,0,0.1); }
         .btn-sm:active { transform: translateY(0); }
 
-        .btn-sm-edit    { background: var(--accent);  color: #fff !important; border: 1px solid var(--accent-hover); }
-        .btn-sm-edit:hover { background: var(--accent-hover); color: #fff !important; }
+        .btn-sm-edit    { background: var(--accent);  color: #FFFFFF !important; border: 1px solid var(--accent-hover); }
+        .btn-sm-edit:hover { background: var(--accent-hover); color: #FFFFFF !important; }
 
-        .btn-sm-delete  { background: #EF4444; color: #fff !important; border: 1px solid #DC2626; }
-        .btn-sm-delete:hover { background: #DC2626; color: #fff !important; }
+        .btn-sm-delete  { background: #EF4444; color: #FFFFFF !important; border: 1px solid #DC2626; }
+        .btn-sm-delete:hover { background: #DC2626; color: #FFFFFF !important; }
 
-        .btn-sm-view    { background: #475569; color: #fff !important; border: 1px solid #334155; }
-        .btn-sm-view:hover { background: #334155; color: #fff !important; }
+        .btn-sm-view    { background: #475569; color: #FFFFFF !important; border: 1px solid #334155; }
+        .btn-sm-view:hover { background: #334155; color: #FFFFFF !important; }
 
-        .btn-sm-success { background: #22C55E; color: #fff !important; border: 1px solid #16A34A; }
-        .btn-sm-success:hover { background: #16A34A; color: #fff !important; }
+        .btn-sm-success { background: #22C55E; color: #FFFFFF !important; border: 1px solid #16A34A; }
+        .btn-sm-success:hover { background: #16A34A; color: #FFFFFF !important; }
 
         /* =============================================
            LINKS, BADGES, CARDS
@@ -365,6 +684,10 @@
 
             <!-- Right Actions -->
             <div class="hidden md:flex items-center gap-3">
+                <!-- Theme Toggle -->
+                <button id="theme-toggle" aria-label="Toggle theme" class="p-2 rounded-lg text-[var(--muted)] hover:bg-[var(--bg)] transition-colors">
+                    <span id="theme-toggle-icon" style="font-size:16px;line-height:1;">☀️</span>
+                </button>
                 @guest
                     <a href="/login" class="text-[13.5px] font-medium text-[var(--muted)] hover:text-[var(--accent)] transition-colors">Login</a>
                     <a href="/register" class="btn-primary" style="padding:7px 16px;font-size:13px;">Create Account</a>
@@ -549,6 +872,34 @@
     </footer>
 
     @yield('scripts')
+
+    <script>
+        (function(){
+            try {
+                const key = 'theme';
+                const root = document.documentElement;
+                const btn = document.getElementById('theme-toggle');
+                const icon = document.getElementById('theme-toggle-icon');
+
+                function setIcon(isDark){ icon.textContent = isDark ? '🌙' : '☀️'; }
+
+                // Apply saved theme on load
+                const saved = localStorage.getItem(key);
+                const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const isDark = (saved === 'dark') || (!saved && prefersDark);
+                if(isDark) root.classList.add('dark'); else root.classList.remove('dark');
+                setIcon(isDark);
+
+                if(btn){
+                    btn.addEventListener('click', function(){
+                        const nowDark = root.classList.toggle('dark');
+                        localStorage.setItem(key, nowDark ? 'dark' : 'light');
+                        setIcon(nowDark);
+                    });
+                }
+            } catch (e) { console.error('theme toggle', e); }
+        })();
+    </script>
 </body>
 
 </html>
