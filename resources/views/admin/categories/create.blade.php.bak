@@ -5,7 +5,7 @@
 @section('content')
     <div class="max-w-[800px] mx-auto">
         <!-- Page Title -->
-        <h1 class="text-[22px] font-medium text-[var(--text)] mb-8">Create Category</h1>
+        <h1 class="text-[22px] font-medium text-[var(--text)] mb-8">إنشاء Category</h1>
 
         <!-- Category Form -->
         <div class="card p-6">

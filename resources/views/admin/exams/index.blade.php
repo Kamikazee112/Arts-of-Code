@@ -7,8 +7,8 @@
     <!-- Page Header -->
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
         <div>
-            <h1 class="text-[22px] font-bold text-[var(--text)] tracking-tight">الاختبارات</h1>
-            <p class="text-[13px] text-[var(--muted)] mt-0.5">إنشاء and manage all platform quizzes</p>
+            <h1 class="text-[22px] font-bold text-[var(--text)] tracking-tight">Exams</h1>
+            <p class="text-[13px] text-[var(--muted)] mt-0.5">Create and manage all platform quizzes</p>
         </div>
         <a href="/admin/exams/create" class="btn-primary self-start sm:self-auto">
             <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
@@ -24,11 +24,11 @@
                     <thead>
                         <tr class="border-b border-[var(--border)] bg-[var(--surface-2)]">
                             <th class="text-left py-3 px-4 text-[11px] font-bold text-[var(--muted)] uppercase tracking-wider">Title</th>
-                            <th class="text-left py-3 px-4 text-[11px] font-bold text-[var(--muted)] uppercase tracking-wider hidden sm:table-cell">الأسئلة</th>
+                            <th class="text-left py-3 px-4 text-[11px] font-bold text-[var(--muted)] uppercase tracking-wider hidden sm:table-cell">Questions</th>
                             <th class="text-left py-3 px-4 text-[11px] font-bold text-[var(--muted)] uppercase tracking-wider hidden md:table-cell">Duration</th>
                             <th class="text-left py-3 px-4 text-[11px] font-bold text-[var(--muted)] uppercase tracking-wider hidden lg:table-cell">Attempts</th>
-                            <th class="text-left py-3 px-4 text-[11px] font-bold text-[var(--muted)] uppercase tracking-wider hidden lg:table-cell">إنشاءd</th>
-                            <th class="text-left py-3 px-4 text-[11px] font-bold text-[var(--muted)] uppercase tracking-wider">الإجراءات</th>
+                            <th class="text-left py-3 px-4 text-[11px] font-bold text-[var(--muted)] uppercase tracking-wider hidden lg:table-cell">Created</th>
+                            <th class="text-left py-3 px-4 text-[11px] font-bold text-[var(--muted)] uppercase tracking-wider">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -51,8 +51,8 @@
                                 </td>
                                 <td class="py-3.5 px-4">
                                     <div class="action-group">
-                                        <a href="/admin/exams/{{ $exam->id }}/results" class="btn-sm btn-sm-view">النتائج</a>
-                                        <a href="/admin/exams/{{ $exam->id }}/edit" class="btn-sm btn-sm-edit">تعديل</a>
+                                        <a href="/admin/exams/{{ $exam->id }}/results" class="btn-sm btn-sm-view">Results</a>
+                                        <a href="/admin/exams/{{ $exam->id }}/edit" class="btn-sm btn-sm-edit">Edit</a>
                                         <form method="POST" action="/admin/exams/{{ $exam->id }}"
                                             onsubmit="return confirm('Are you sure you want to delete this exam?');" class="inline">
                                             @csrf

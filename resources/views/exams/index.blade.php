@@ -80,7 +80,7 @@
                                 </div>
 
                                 <div class="flex justify-between items-center border-t border-[var(--border)] pt-4 mt-auto">
-                                    <span class="text-[12px] text-[var(--muted)] font-medium">إنشاءd by me</span>
+                                    <span class="text-[12px] text-[var(--muted)] font-medium">Created by me</span>
                                     <div class="action-group">
                                         <a href="/exams/{{ $exam->id }}/edit" class="btn-sm btn-sm-edit" style="border-radius: 8px; padding: 6px 14px;">
                                             Edit

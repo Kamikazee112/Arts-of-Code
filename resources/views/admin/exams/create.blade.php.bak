@@ -4,7 +4,7 @@
 
 @section('admin-content')
     <div>
-        <h1 class="text-[22px] font-medium text-[var(--text)] mb-8">Create Exam</h1>
+        <h1 class="text-[22px] font-medium text-[var(--text)] mb-8">إنشاء Exam</h1>
 
         <div class="card p-6 max-w-2xl">
             <form method="POST" action="/admin/exams">

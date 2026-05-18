@@ -32,7 +32,7 @@
 
             <div class="flex gap-4 mb-4">
                 <div class="flex items-center gap-2">
-                    <span class="text-sm text-[var(--muted)]">الأسئلة:</span>
+                    <span class="text-sm text-[var(--muted)]">Questions:</span>
                     <span class="text-sm font-medium text-[var(--text)]">{{ $exam->questions->count() }}</span>
                 </div>
                 @if($exam->time_limit)
@@ -63,7 +63,7 @@
 
         <!-- Questions Preview -->
         <div class="card p-6">
-            <h2 class="text-[16px] font-medium text-[var(--text)] mb-4">الأسئلة</h2>
+            <h2 class="text-[16px] font-medium text-[var(--text)] mb-4">Questions</h2>
             @if($exam->questions->count() > 0)
                 <div class="space-y-4">
                     @foreach($exam->questions as $index => $question)

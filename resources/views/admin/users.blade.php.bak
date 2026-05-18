@@ -5,7 +5,7 @@
 @section('content')
     <div class="max-w-[1000px] mx-auto">
         <div class="flex justify-between items-center mb-8">
-            <h1 class="text-[28px] font-medium text-[var(--text)]">Manage Users</h1>
+            <h1 class="text-[28px] font-medium text-[var(--text)]">Manage المستخدمين</h1>
             <a href="/admin/dashboard" class="text-[var(--muted)] hover:text-[var(--accent)] transition-colors">
                 ← Back to Dashboard
             </a>
@@ -15,7 +15,7 @@
         <div class="grid md:grid-cols-3 gap-6 mb-8">
             <div class="card p-6">
                 <div class="text-[32px] font-medium text-[var(--accent)] mb-2">{{ $users->count() }}</div>
-                <div class="text-[14px] text-[var(--muted)]">Total Users</div>
+                <div class="text-[14px] text-[var(--muted)]">Total المستخدمين</div>
             </div>
             <div class="card p-6">
                 <div class="text-[32px] font-medium text-green-600 mb-2">{{ $users->where('role', 'admin')->count() }}</div>
@@ -23,7 +23,7 @@
             </div>
             <div class="card p-6">
                 <div class="text-[32px] font-medium text-blue-600 mb-2">{{ $users->where('role', 'user')->count() }}</div>
-                <div class="text-[14px] text-[var(--muted)]">Regular Users</div>
+                <div class="text-[14px] text-[var(--muted)]">Regular المستخدمين</div>
             </div>
         </div>
 
@@ -31,7 +31,7 @@
         <div class="mb-6">
             <form method="GET" action="/admin/users" class="flex gap-2">
                 <input type="text" name="search" value="{{ $search ?? '' }}"
-                    placeholder="Search users by username or email..." class="input flex-1">
+                    placeholder="بحث users by username or email..." class="input flex-1">
                 <button type="submit" class="btn-primary">
                     Search
                 </button>
@@ -46,7 +46,7 @@
         <!-- Users List -->
         <div class="card">
             <div class="p-4 border-b border-[var(--border)]">
-                <h2 class="text-[18px] font-medium text-[var(--text)]">All Users</h2>
+                <h2 class="text-[18px] font-medium text-[var(--text)]">All المستخدمين</h2>
             </div>
 
             @if($users->count() > 0)

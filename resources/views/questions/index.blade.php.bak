@@ -106,7 +106,7 @@
             <div class="card p-12 text-center flex flex-col items-center justify-center border-dashed border-2">
                 <span class="text-4xl mb-4">📂</span>
                 <h3 class="text-xl font-bold text-[var(--text)] mb-2">Your Question Bank is Empty</h3>
-                <p class="text-sm text-[var(--muted)] max-w-sm mb-6">Create questions first so you can group them into challenging coding exams and quizzes!</p>
+                <p class="text-sm text-[var(--muted)] max-w-sm mb-6">إنشاء questions first so you can group them into challenging coding exams and quizzes!</p>
                 <a href="/questions/create" class="btn-primary font-bold px-6 py-3" style="border-radius: 10px;">
                     Create Your First Question
                 </a>

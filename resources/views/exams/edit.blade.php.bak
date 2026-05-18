@@ -19,7 +19,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                 </svg>
             </span>
-            <h1 class="text-[26px] font-extrabold text-[var(--text)] tracking-tight">Edit Quiz: <span class="text-[var(--accent)]">{{ $exam->title }}</span></h1>
+            <h1 class="text-[26px] font-extrabold text-[var(--text)] tracking-tight">تعديل Quiz: <span class="text-[var(--accent)]">{{ $exam->title }}</span></h1>
         </div>
     </div>
 
@@ -137,7 +137,7 @@
 
             <!-- Categories Selection Grid -->
             <div class="mb-6">
-                <label class="block text-[12px] font-extrabold tracking-wider text-slate-700 uppercase mb-3">Categories</label>
+                <label class="block text-[12px] font-extrabold tracking-wider text-slate-700 uppercase mb-3">التصنيفات</label>
                 @php
                     $categories = \App\Models\Category::all();
                     $selectedCategories = $exam->categories->pluck('id')->toArray();
@@ -158,7 +158,7 @@
                         @endforeach
                     </div>
                 @else
-                    <p class="text-sm text-[var(--muted)]">No categories available yet. <a href="/admin/categories" class="link">Create categories first</a></p>
+                    <p class="text-sm text-[var(--muted)]">No categories available yet. <a href="/admin/categories" class="link">إنشاء categories first</a></p>
                 @endif
                 @error('categories')
                     <p class="text-sm text-[var(--danger)] mt-1.5 font-medium">{{ $message }}</p>
@@ -167,7 +167,7 @@
 
             <!-- Questions Selection Scrollable Box (Rich Badged rows) -->
             <div class="mb-8">
-                <label class="block text-[12px] font-extrabold tracking-wider text-slate-700 uppercase mb-3">Select Questions For Quiz</label>
+                <label class="block text-[12px] font-extrabold tracking-wider text-slate-700 uppercase mb-3">Select الأسئلة For Quiz</label>
                 @if($questions->count() > 0)
                     <div class="space-y-2.5 max-h-[300px] overflow-y-auto border border-slate-200 rounded-xl p-4 bg-slate-50/50">
                         @foreach($questions as $question)

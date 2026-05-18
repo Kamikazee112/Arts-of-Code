@@ -5,7 +5,7 @@
 @section('admin-content')
     <div>
         <div class="flex justify-between items-center mb-8">
-            <h1 class="text-[22px] font-medium text-[var(--text)]">Questions</h1>
+            <h1 class="text-[22px] font-medium text-[var(--text)]">الأسئلة</h1>
 
             <a href="/admin/questions/create" class="btn-primary">
                 Add Question
@@ -18,7 +18,7 @@
                 <form method="GET" action="/admin/questions" class="flex gap-4 items-center">
                     <label class="text-sm text-[var(--muted)]">Filter by exam:</label>
                     <select name="exam_id" class="input max-w-xs" onchange="this.form.submit()">
-                        <option value="">All Exams</option>
+                        <option value="">All الاختبارات</option>
                         @foreach($exams as $exam)
                             <option value="{{ $exam->id }}" {{ request('exam_id') == $exam->id ? 'selected' : '' }}>
                                 {{ $exam->title }}
@@ -63,7 +63,7 @@
                                     <div class="action-group">
                                         <!-- Edit -->
                                         <a href="/admin/questions/{{ $question->id }}/edit"
-                                            class="btn-sm btn-sm-edit">Edit</a>
+                                            class="btn-sm btn-sm-edit">تعديل</a>
 
                                         <!-- Delete -->
                                         <form method="POST" action="/admin/questions/{{ $question->id }}"

@@ -60,7 +60,7 @@
                         <!-- Articles Section -->
                         @if($category->articles->count() > 0)
                             <div class="px-3 pb-2">
-                                <p class="text-[10px] font-semibold uppercase tracking-wider text-[var(--muted)] mb-1.5">Articles</p>
+                                <p class="text-[10px] font-semibold uppercase tracking-wider text-[var(--muted)] mb-1.5">المقالات</p>
                                 <div class="space-y-1">
                                     @foreach($category->articles as $article)
                                         @php $isCompleted = $user ? $article->isCompletedBy($user->id) : false; @endphp

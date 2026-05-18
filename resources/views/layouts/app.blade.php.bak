@@ -367,7 +367,7 @@
             <div class="hidden md:flex items-center gap-3">
                 @guest
                     <a href="/login" class="text-[13.5px] font-medium text-[var(--muted)] hover:text-[var(--accent)] transition-colors">Login</a>
-                    <a href="/register" class="btn-primary" style="padding:7px 16px;font-size:13px;">Create Account</a>
+                    <a href="/register" class="btn-primary" style="padding:7px 16px;font-size:13px;">إنشاء Account</a>
                 @endguest
 
                 @auth
@@ -438,21 +438,21 @@
         <!-- Mobile Menu -->
         <div x-show="mobileMenuOpen" x-transition class="md:hidden bg-[var(--surface)] border-t border-[var(--border)] py-4 px-6 shadow-md">
             <div class="flex flex-col gap-1">
-                <a href="/articles" class="px-3 py-2.5 rounded-lg text-[14px] text-[var(--text)] hover:bg-[var(--bg)] hover:text-[var(--accent)] transition-colors font-medium">Articles</a>
+                <a href="/articles" class="px-3 py-2.5 rounded-lg text-[14px] text-[var(--text)] hover:bg-[var(--bg)] hover:text-[var(--accent)] transition-colors font-medium">المقالات</a>
                 @if(auth()->check() && auth()->user()->role === 'admin')
-                    <a href="/questions" class="px-3 py-2.5 rounded-lg text-[14px] text-[var(--text)] hover:bg-[var(--bg)] hover:text-[var(--accent)] transition-colors font-medium">Questions</a>
+                    <a href="/questions" class="px-3 py-2.5 rounded-lg text-[14px] text-[var(--text)] hover:bg-[var(--bg)] hover:text-[var(--accent)] transition-colors font-medium">الأسئلة</a>
                 @endif
                 <a href="/exams" class="px-3 py-2.5 rounded-lg text-[14px] text-[var(--text)] hover:bg-[var(--bg)] hover:text-[var(--accent)] transition-colors font-medium">Quizzes</a>
                 <a href="/achievements" class="px-3 py-2.5 rounded-lg text-[14px] text-[var(--text)] hover:bg-[var(--bg)] hover:text-[var(--accent)] transition-colors font-medium">Achievements</a>
                 <div class="border-t border-[var(--border)] my-2"></div>
                 @guest
                     <a href="/login" class="px-3 py-2.5 rounded-lg text-[14px] text-[var(--text)] hover:bg-[var(--bg)] font-medium">Login</a>
-                    <a href="/register" class="btn-primary text-center mt-1">Create Account</a>
+                    <a href="/register" class="btn-primary text-center mt-1">إنشاء Account</a>
                 @endguest
                 @auth
                     <a href="/articles/create" class="px-3 py-2.5 rounded-lg text-[14px] text-[var(--text)] hover:bg-[var(--bg)] font-medium">Write Article</a>
                     <a href="/users/{{ auth()->user()->id }}" class="px-3 py-2.5 rounded-lg text-[14px] text-[var(--text)] hover:bg-[var(--bg)] font-medium">Profile</a>
-                    <a href="/settings" class="px-3 py-2.5 rounded-lg text-[14px] text-[var(--text)] hover:bg-[var(--bg)] font-medium">Settings</a>
+                    <a href="/settings" class="px-3 py-2.5 rounded-lg text-[14px] text-[var(--text)] hover:bg-[var(--bg)] font-medium">الإعدادات</a>
                     <form method="POST" action="/logout">
                         @csrf
                         <button type="submit" class="w-full text-left px-3 py-2.5 rounded-lg text-[14px] text-[var(--danger)] hover:bg-[var(--danger-bg)] font-medium">Logout</button>

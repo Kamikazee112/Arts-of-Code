@@ -4,7 +4,7 @@
 
 @section('admin-content')
 <div>
-    <h1 class="text-[22px] font-medium text-[var(--text)] mb-8">المستخدمين</h1>
+    <h1 class="text-[22px] font-medium text-[var(--text)] mb-8">Users</h1>
 
     <!-- Search -->
     <form method="GET" action="/admin/users" class="mb-6">
@@ -12,7 +12,7 @@
             type="text"
             name="search"
             value="{{ request('search') }}"
-            placeholder="بحث users..."
+            placeholder="Search users..."
             class="input max-w-md"
         >
     </form>
@@ -25,11 +25,11 @@
                     <tr class="border-b border-[var(--border)]">
                         <th class="text-left py-3 px-4 text-[12px] text-[var(--muted)] uppercase tracking-wider">Username</th>
                         <th class="text-left py-3 px-4 text-[12px] text-[var(--muted)] uppercase tracking-wider">Name</th>
-                        <th class="text-left py-3 px-4 text-[12px] text-[var(--muted)] uppercase tracking-wider">البريد الإلكتروني</th>
-                        <th class="text-left py-3 px-4 text-[12px] text-[var(--muted)] uppercase tracking-wider">المقالات</th>
+                        <th class="text-left py-3 px-4 text-[12px] text-[var(--muted)] uppercase tracking-wider">Email address</th>
+                        <th class="text-left py-3 px-4 text-[12px] text-[var(--muted)] uppercase tracking-wider">Articles</th>
                         <th class="text-left py-3 px-4 text-[12px] text-[var(--muted)] uppercase tracking-wider">Joined</th>
                         <th class="text-left py-3 px-4 text-[12px] text-[var(--muted)] uppercase tracking-wider">Status</th>
-                        <th class="text-left py-3 px-4 text-[12px] text-[var(--muted)] uppercase tracking-wider">الإجراءات</th>
+                        <th class="text-left py-3 px-4 text-[12px] text-[var(--muted)] uppercase tracking-wider">Actions</th>
                     </tr>
                 </thead>
                 <tbody>

@@ -6,7 +6,7 @@
     <div class="max-w-[800px] mx-auto">
         <!-- Page Title -->
         <div class="mb-8">
-            <h1 class="text-[22px] font-medium text-[var(--text)]">تعديل Article</h1>
+            <h1 class="text-[22px] font-medium text-[var(--text)]">Edit Article</h1>
         </div>
 
         <!-- Form -->
@@ -36,7 +36,7 @@
 
             <!-- Categories Selection -->
             <div class="mb-6">
-                <label class="block text-[13px] font-medium text-[var(--text)] mb-2">التصنيفات</label>
+                <label class="block text-[13px] font-medium text-[var(--text)] mb-2">Categories</label>
                 <div class="space-y-2">
                     @php
                         $categories = \App\Models\Category::all();
@@ -52,7 +52,7 @@
                         @endforeach
                     @else
                         <p class="text-sm text-[var(--muted)]">No categories available yet. <a href="/admin/categories"
-                                class="link">إنشاء categories first</a></p>
+                                class="link">Create categories first</a></p>
                     @endif
                 </div>
                 @error('categories')

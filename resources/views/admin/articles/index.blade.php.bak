@@ -6,7 +6,7 @@
 <div>
     <!-- Page Header -->
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-        <h1 class="text-[22px] font-bold text-[var(--text)] tracking-tight">Articles</h1>
+        <h1 class="text-[22px] font-bold text-[var(--text)] tracking-tight">المقالات</h1>
         <div class="text-[13px] text-[var(--muted)]">
             Manage and moderate all community articles
         </div>
@@ -43,9 +43,9 @@
                         <tr class="border-b border-[var(--border)] bg-[var(--surface-2)]">
                             <th class="text-left py-3 px-4 text-[11px] font-bold text-[var(--muted)] uppercase tracking-wider">Title</th>
                             <th class="text-left py-3 px-4 text-[11px] font-bold text-[var(--muted)] uppercase tracking-wider hidden sm:table-cell">Author</th>
-                            <th class="text-left py-3 px-4 text-[11px] font-bold text-[var(--muted)] uppercase tracking-wider hidden md:table-cell">Submitted</th>
+                            <th class="text-left py-3 px-4 text-[11px] font-bold text-[var(--muted)] uppercase tracking-wider hidden md:table-cell">إرسالted</th>
                             <th class="text-left py-3 px-4 text-[11px] font-bold text-[var(--muted)] uppercase tracking-wider">Status</th>
-                            <th class="text-left py-3 px-4 text-[11px] font-bold text-[var(--muted)] uppercase tracking-wider">Actions</th>
+                            <th class="text-left py-3 px-4 text-[11px] font-bold text-[var(--muted)] uppercase tracking-wider">الإجراءات</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -85,7 +85,7 @@
                                         @endif
 
                                         <!-- Edit -->
-                                        <a href="/admin/articles/{{ $article->id }}/edit" class="btn-sm btn-sm-edit">Edit</a>
+                                        <a href="/admin/articles/{{ $article->id }}/edit" class="btn-sm btn-sm-edit">تعديل</a>
 
                                         <!-- Delete -->
                                         <form method="POST" action="/admin/articles/{{ $article->id }}" onsubmit="return confirm('Delete this article?');" class="inline">

@@ -59,7 +59,7 @@
 
                     <!-- Email Input -->
                     <div class="mb-5">
-                        <label class="block text-[13px] font-semibold text-[var(--text)] mb-1.5">البريد الإلكتروني Address</label>
+                        <label class="block text-[13px] font-semibold text-[var(--text)] mb-1.5">Email address Address</label>
                         <div class="relative">
                             <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
                                 <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="text-[var(--muted)]"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
@@ -101,7 +101,7 @@
                 <span class="inline-flex items-center justify-center w-7 h-7 bg-amber-50 text-amber-600 rounded-lg">
                     <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
                 </span>
-                <h2 class="text-[12px] uppercase tracking-[0.1em] text-[var(--muted)] font-bold">تحديث كلمة المرور</h2>
+                <h2 class="text-[12px] uppercase tracking-[0.1em] text-[var(--muted)] font-bold">Update Password</h2>
             </div>
 
             <div class="card p-6 md:p-8">
@@ -121,7 +121,7 @@
 
                     <!-- Current Password -->
                     <div class="mb-5">
-                        <label class="block text-[13px] font-semibold text-[var(--text)] mb-1.5">Current كلمة المرور</label>
+                        <label class="block text-[13px] font-semibold text-[var(--text)] mb-1.5">Current Password</label>
                         <div class="relative">
                             <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
                                 <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="text-[var(--muted)]"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
@@ -136,7 +136,7 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-6">
                         <!-- New Password -->
                         <div>
-                            <label class="block text-[13px] font-semibold text-[var(--text)] mb-1.5">New كلمة المرور</label>
+                            <label class="block text-[13px] font-semibold text-[var(--text)] mb-1.5">New Password</label>
                             <div class="relative">
                                 <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
                                     <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="text-[var(--muted)]"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
@@ -150,7 +150,7 @@
 
                         <!-- Confirm New Password -->
                         <div>
-                            <label class="block text-[13px] font-semibold text-[var(--text)] mb-1.5">Confirm New كلمة المرور</label>
+                            <label class="block text-[13px] font-semibold text-[var(--text)] mb-1.5">Confirm New Password</label>
                             <div class="relative">
                                 <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
                                     <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" class="text-[var(--muted)]"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>

@@ -89,7 +89,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                 </span>
-                <h2 class="text-[20px] font-extrabold text-slate-800">Quick الإجراءات</h2>
+                <h2 class="text-[20px] font-extrabold text-slate-800">Quick Actions</h2>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -225,7 +225,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 4a2 2 0 00-2-2m2 2a2 2 0 012 2v8a2 2 0 01-2 2h-8a2 2 0 01-2-2v-2m-6-1h10m-5-4h5m-5 8h5" />
                     </svg>
                 </span>
-                <h2 class="text-[20px] font-extrabold text-slate-800">Your المقالات</h2>
+                <h2 class="text-[20px] font-extrabold text-slate-800">Your Articles</h2>
             </div>
             
             <div class="card p-6 bg-white border border-slate-200/60 shadow-md rounded-2xl relative overflow-hidden">

@@ -10,7 +10,7 @@
                 <span style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;background:var(--accent);border-radius:12px;margin-bottom:16px;">
                     <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
                 </span>
-                <h1 class="text-[24px] font-bold text-[var(--text)] tracking-tight">إنشاء your account</h1>
+                <h1 class="text-[24px] font-bold text-[var(--text)] tracking-tight">Create your account</h1>
                 <p class="text-[14px] text-[var(--muted)] mt-1">Join the Arts Of Code community</p>
             </div>
 
@@ -52,7 +52,7 @@
 
                     <!-- Email Input -->
                     <div class="mb-4">
-                        <label class="block text-[13px] font-semibold text-[var(--text)] mb-1.5">البريد الإلكتروني</label>
+                        <label class="block text-[13px] font-semibold text-[var(--text)] mb-1.5">Email address</label>
                         <input type="email" name="email" value="{{ old('email') }}" class="input" placeholder="you@example.com" required>
                         @error('email')
                             <p class="text-[12px] text-[var(--danger)] mt-1.5 font-medium">{{ $message }}</p>
@@ -61,7 +61,7 @@
 
                     <!-- Password Input -->
                     <div class="mb-4">
-                        <label class="block text-[13px] font-semibold text-[var(--text)] mb-1.5">كلمة المرور</label>
+                        <label class="block text-[13px] font-semibold text-[var(--text)] mb-1.5">Password</label>
                         <input type="password" name="password" class="input" placeholder="Min. 8 characters" required>
                         @error('password')
                             <p class="text-[12px] text-[var(--danger)] mt-1.5 font-medium">{{ $message }}</p>
@@ -70,7 +70,7 @@
 
                     <!-- Confirm Password Input -->
                     <div class="mb-6">
-                        <label class="block text-[13px] font-semibold text-[var(--text)] mb-1.5">Confirm كلمة المرور</label>
+                        <label class="block text-[13px] font-semibold text-[var(--text)] mb-1.5">Confirm Password</label>
                         <input type="password" name="password_confirmation" class="input" placeholder="••••••••" required>
                         @error('password_confirmation')
                             <p class="text-[12px] text-[var(--danger)] mt-1.5 font-medium">{{ $message }}</p>

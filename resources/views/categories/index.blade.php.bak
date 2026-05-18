@@ -6,7 +6,7 @@
     <div class="max-w-6xl mx-auto">
         <!-- Page Header -->
         <div class="mb-8">
-            <h1 class="text-[28px] font-medium text-[var(--text)] mb-2">All Categories</h1>
+            <h1 class="text-[28px] font-medium text-[var(--text)] mb-2">All التصنيفات</h1>
             <p class="text-[14px] text-[var(--muted)]">
                 Browse all learning categories and track your progress
             </p>

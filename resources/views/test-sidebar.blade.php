@@ -17,8 +17,8 @@
                 <div class="p-4 bg-[var(--bg)] rounded-lg">
                     <h3 class="font-medium text-[var(--text)] mb-2">Features:</h3>
                     <ul class="list-disc list-inside text-[var(--muted)] space-y-1">
-                        <li>التصنيفات with progress tracking</li>
-                        <li>المقالات and exams listed under each category</li>
+                        <li>Categories with progress tracking</li>
+                        <li>Articles and exams listed under each category</li>
                         <li>Mark items as complete</li>
                         <li>Achievement system for completing categories</li>
                         <li>Real-time progress updates</li>

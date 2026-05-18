@@ -19,7 +19,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
             </span>
-            <h1 class="text-[26px] font-extrabold text-[var(--text)] tracking-tight">تعديل Question: <span class="text-[var(--accent)]">{{ $question->title }}</span></h1>
+            <h1 class="text-[26px] font-extrabold text-[var(--text)] tracking-tight">Edit Question: <span class="text-[var(--accent)]">{{ $question->title }}</span></h1>
         </div>
     </div>
 
@@ -124,7 +124,7 @@
 
             <!-- Categories Selection Grid -->
             <div class="mb-6">
-                <label class="block text-[12px] font-extrabold tracking-wider text-slate-700 uppercase mb-3">التصنيفات</label>
+                <label class="block text-[12px] font-extrabold tracking-wider text-slate-700 uppercase mb-3">Categories</label>
                 @php
                     $categories = \App\Models\Category::all();
                     $selectedCategories = $question->categories->pluck('id')->toArray();
@@ -145,7 +145,7 @@
                         @endforeach
                     </div>
                 @else
-                    <p class="text-sm text-[var(--muted)]">No categories available yet. <a href="/admin/categories" class="link">إنشاء categories first</a></p>
+                    <p class="text-sm text-[var(--muted)]">No categories available yet. <a href="/admin/categories" class="link">Create categories first</a></p>
                 @endif
                 @error('categories')
                     <p class="text-sm text-[var(--danger)] mt-1.5 font-medium">{{ $message }}</p>

@@ -14,7 +14,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
                         </svg>
                     </span>
-                    <h1 class="text-[26px] font-bold text-[var(--text)] tracking-tight">Tech المقالات</h1>
+                    <h1 class="text-[26px] font-bold text-[var(--text)] tracking-tight">Tech Articles</h1>
                 </div>
                 <p class="text-[14.5px] text-[var(--muted)]">
                     Explore deep-dives, coding tutorials, and tech insights from the community.
@@ -33,7 +33,7 @@
         <!-- Search and Filter Bar -->
         <div class="mb-10">
             <form method="GET" action="/articles" class="mb-6 flex gap-2">
-                <input type="text" name="search" value="{{ $search ?? '' }}" placeholder="بحث articles..."
+                <input type="text" name="search" value="{{ $search ?? '' }}" placeholder="Search articles..."
                     class="input flex-1 py-3 px-4 text-sm" style="border-radius: 10px;">
                 <button type="submit" class="btn-primary font-bold px-6 py-3" style="border-radius: 10px;">
                     Search
@@ -141,7 +141,7 @@
                 <span class="inline-flex items-center justify-center w-16 h-16 bg-indigo-50 text-indigo-300 rounded-2xl mb-4">
                     <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
                 </span>
-                <h3 class="text-xl font-bold text-[var(--text)] mb-2">No المقالات Found</h3>
+                <h3 class="text-xl font-bold text-[var(--text)] mb-2">No Articles Found</h3>
                 <p class="text-sm text-[var(--muted)] max-w-sm mb-6">There are no published tech posts matching your criteria. Be the first to share your knowledge!</p>
                 @auth
                     <a href="/articles/create" class="btn-primary font-bold px-6 py-3" style="border-radius: 10px;">

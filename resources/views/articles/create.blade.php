@@ -8,9 +8,9 @@
         <!-- Breadcrumb Navigation -->
         <div class="mb-6">
             <div class="flex items-center gap-2">
-                <a href="/" class="text-sm font-semibold text-[var(--accent)] hover:underline">الرئيسية</a>
+                <a href="/" class="text-sm font-semibold text-[var(--accent)] hover:underline">Home</a>
                 <span class="text-slate-300">/</span>
-                <a href="/articles" class="text-sm font-semibold text-[var(--accent)] hover:underline">المقالات</a>
+                <a href="/articles" class="text-sm font-semibold text-[var(--accent)] hover:underline">Articles</a>
                 <span class="text-slate-300">/</span>
                 <span class="text-sm font-bold text-slate-500">Write Article</span>
             </div>

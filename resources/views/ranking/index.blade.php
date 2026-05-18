@@ -20,7 +20,7 @@
                     class="flex text-[12px] text-[var(--muted)] uppercase tracking-[0.06em] px-4 pb-2 border-b border-[var(--border)]">
                     <div class="w-10">Rank</div>
                     <div class="flex-1">User</div>
-                    <div class="w-20 text-center">المقالات</div>
+                    <div class="w-20 text-center">Articles</div>
                     <div class="w-24 text-center">Best Exam</div>
                     <div class="w-24 text-center">Total Score</div>
                 </div>
