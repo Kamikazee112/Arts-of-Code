@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -129,7 +130,7 @@
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: 8px;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
         }
 
         .status-pending {
@@ -160,6 +161,7 @@
 
     @yield('styles')
 </head>
+
 <body class="bg-[#FAFAFA] text-[var(--text)]">
     <div class="flex min-h-screen">
         <!-- Sidebar -->
@@ -174,34 +176,24 @@
 
             <!-- Navigation -->
             <nav class="p-2">
-                <a
-                    href="/admin"
-                    class="block px-4 py-2 text-sm rounded hover:bg-[#27272A] {{ request()->is('admin') ? 'text-white font-medium bg-[#27272A]' : '' }}"
-                >
+                <a href="/admin"
+                    class="block px-4 py-2 text-sm rounded hover:bg-[#27272A] {{ request()->is('admin') ? 'text-white font-medium bg-[#27272A]' : '' }}">
                     Dashboard
                 </a>
-                <a
-                    href="/admin/articles"
-                    class="block px-4 py-2 text-sm rounded hover:bg-[#27272A] {{ request()->is('admin/articles*') ? 'text-white font-medium bg-[#27272A]' : '' }}"
-                >
+                <a href="/admin/articles"
+                    class="block px-4 py-2 text-sm rounded hover:bg-[#27272A] {{ request()->is('admin/articles*') ? 'text-white font-medium bg-[#27272A]' : '' }}">
                     Articles
                 </a>
-                <a
-                    href="/admin/users"
-                    class="block px-4 py-2 text-sm rounded hover:bg-[#27272A] {{ request()->is('admin/users*') ? 'text-white font-medium bg-[#27272A]' : '' }}"
-                >
+                <a href="/admin/users"
+                    class="block px-4 py-2 text-sm rounded hover:bg-[#27272A] {{ request()->is('admin/users*') ? 'text-white font-medium bg-[#27272A]' : '' }}">
                     Users
                 </a>
-                <a
-                    href="/admin/exams"
-                    class="block px-4 py-2 text-sm rounded hover:bg-[#27272A] {{ request()->is('admin/exams*') ? 'text-white font-medium bg-[#27272A]' : '' }}"
-                >
+                <a href="/admin/exams"
+                    class="block px-4 py-2 text-sm rounded hover:bg-[#27272A] {{ request()->is('admin/exams*') ? 'text-white font-medium bg-[#27272A]' : '' }}">
                     Exams
                 </a>
-                <a
-                    href="/admin/questions"
-                    class="block px-4 py-2 text-sm rounded hover:bg-[#27272A] {{ request()->is('admin/questions*') ? 'text-white font-medium bg-[#27272A]' : '' }}"
-                >
+                <a href="/admin/questions"
+                    class="block px-4 py-2 text-sm rounded hover:bg-[#27272A] {{ request()->is('admin/questions*') ? 'text-white font-medium bg-[#27272A]' : '' }}">
                     Questions
                 </a>
             </nav>
@@ -222,4 +214,5 @@
 
     @yield('scripts')
 </body>
+
 </html>

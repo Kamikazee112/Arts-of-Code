@@ -4,7 +4,7 @@
 
 @section('admin-content')
 <div>
-    <h1 class="text-[22px] font-medium text-[var(--text)] mb-8">Users</h1>
+    <h1 class="text-[22px] font-medium text-[var(--text)] mb-8">المستخدمين</h1>
 
     <!-- Search -->
     <form method="GET" action="/admin/users" class="mb-6">
@@ -12,7 +12,7 @@
             type="text"
             name="search"
             value="{{ request('search') }}"
-            placeholder="Search users..."
+            placeholder="بحث users..."
             class="input max-w-md"
         >
     </form>
@@ -25,11 +25,11 @@
                     <tr class="border-b border-[var(--border)]">
                         <th class="text-left py-3 px-4 text-[12px] text-[var(--muted)] uppercase tracking-wider">Username</th>
                         <th class="text-left py-3 px-4 text-[12px] text-[var(--muted)] uppercase tracking-wider">Name</th>
-                        <th class="text-left py-3 px-4 text-[12px] text-[var(--muted)] uppercase tracking-wider">Email</th>
-                        <th class="text-left py-3 px-4 text-[12px] text-[var(--muted)] uppercase tracking-wider">Articles</th>
+                        <th class="text-left py-3 px-4 text-[12px] text-[var(--muted)] uppercase tracking-wider">البريد الإلكتروني</th>
+                        <th class="text-left py-3 px-4 text-[12px] text-[var(--muted)] uppercase tracking-wider">المقالات</th>
                         <th class="text-left py-3 px-4 text-[12px] text-[var(--muted)] uppercase tracking-wider">Joined</th>
                         <th class="text-left py-3 px-4 text-[12px] text-[var(--muted)] uppercase tracking-wider">Status</th>
-                        <th class="text-left py-3 px-4 text-[12px] text-[var(--muted)] uppercase tracking-wider">Actions</th>
+                        <th class="text-left py-3 px-4 text-[12px] text-[var(--muted)] uppercase tracking-wider">الإجراءات</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -58,9 +58,9 @@
                                 </span>
                             </td>
                             <td class="py-4 px-4">
-                                <div class="flex gap-2">
+                                <div class="action-group">
                                     <!-- View Profile -->
-                                    <a href="/users/{{ $user->username }}" class="text-sm text-[var(--accent)] hover:underline">
+                                    <a href="/users/{{ $user->username }}" class="btn-sm btn-sm-view">
                                         View Profile
                                     </a>
 
@@ -68,14 +68,14 @@
                                     @if($user->is_blocked ?? false)
                                         <form method="POST" action="/admin/users/{{ $user->id }}/unblock" class="inline">
                                             @csrf
-                                            <button type="submit" class="btn-success text-xs py-1 px-2">
+                                            <button type="submit" class="btn-sm btn-sm-success">
                                                 Unblock
                                             </button>
                                         </form>
                                     @else
                                         <form method="POST" action="/admin/users/{{ $user->id }}/block" class="inline">
                                             @csrf
-                                            <button type="submit" class="btn-danger text-xs py-1 px-2">
+                                            <button type="submit" class="btn-sm btn-sm-warning">
                                                 Block
                                             </button>
                                         </form>
@@ -85,7 +85,7 @@
                                     <form method="POST" action="/admin/users/{{ $user->id }}" onsubmit="return confirm('Are you sure you want to delete this account?');" class="inline">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="text-sm text-[var(--danger)] hover:underline">
+                                        <button type="submit" class="btn-sm btn-sm-delete">
                                             Delete Account
                                         </button>
                                     </form>

@@ -3,134 +3,136 @@
 @section('title', 'Results - ' . $attempt->exam->title . ' - Arts Of Code')
 
 @section('content')
-<div class="max-w-[700px] mx-auto">
-    <!-- Results Summary Card -->
-    <div class="card p-8 text-center mb-10">
-        <!-- Score -->
-        <div class="text-[48px] font-medium mb-4" style="color: {{ $attempt->passed ? 'var(--accent)' : 'var(--danger)' }}">
-            {{ round($attempt->score) }}%
-        </div>
+    <div class="max-w-[700px] mx-auto">
+        <!-- Results Summary Card -->
+        <div class="card p-8 text-center mb-10">
+            <!-- Score -->
+            <div class="text-[48px] font-medium mb-4"
+                style="color: {{ $attempt->passed ? 'var(--accent)' : 'var(--danger)' }}">
+                {{ round($attempt->score) }}%
+            </div>
 
-        <!-- Exam Title -->
-        <div class="text-[16px] text-[var(--muted)] mb-6">
-            {{ $attempt->exam->title }}
-        </div>
+            <!-- Exam Title -->
+            <div class="text-[16px] text-[var(--muted)] mb-6">
+                {{ $attempt->exam->title }}
+            </div>
 
-        <!-- Pass/Fail Status -->
-        <div class="mb-6">
-            @if($attempt->passed)
-                <span class="inline-flex items-center gap-2 px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium">
-                    ✓ Passed
-                </span>
-            @else
-                <span class="inline-flex items-center gap-2 px-4 py-2 bg-red-100 text-red-800 rounded-full text-sm font-medium">
-                    ✗ Failed (Passing: {{ $attempt->exam->passing_score }}%)
-                </span>
-            @endif
-        </div>
-
-        <!-- Perfect Score Achievement -->
-        @if($attempt->score == 100)
+            <!-- Pass/Fail Status -->
             <div class="mb-6">
-                <span class="inline-flex items-center gap-2 px-4 py-2 bg-yellow-100 text-yellow-800 rounded-full text-sm font-medium">
-                    🏆 Perfect Score! Exam marked as complete
-                </span>
+                @if($attempt->passed)
+                    <span
+                        class="inline-flex items-center gap-2 px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium">
+                        ✓ Passed
+                    </span>
+                @else
+                    <span
+                        class="inline-flex items-center gap-2 px-4 py-2 bg-red-100 text-red-800 rounded-full text-sm font-medium">
+                        ✗ Failed (Passing: {{ $attempt->exam->passing_score }}%)
+                    </span>
+                @endif
             </div>
-        @endif
 
-        <!-- Stats Row -->
-        <div class="flex justify-center gap-8 pt-6 border-t border-[var(--border)]">
-            <div>
-                <div class="text-[18px] font-medium" style="color: #16A34A">
-                    ✓ {{ $attempt->quizAnswers->where('is_correct', true)->count() }}
+            <!-- Perfect Score Achievement -->
+            @if($attempt->score == 100)
+                <div class="mb-6">
+                    <span class="inline-flex items-center gap-2 px-4 py-2 bg-cyan-50 text-cyan-700 rounded-full text-sm font-semibold border border-cyan-200">
+                        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+                        Perfect Score! Exam marked as complete
+                    </span>
                 </div>
-                <div class="text-[13px] text-[var(--muted)]">Correct</div>
-            </div>
-
-            <div>
-                <div class="text-[18px] font-medium" style="color: var(--danger)">
-                    ✗ {{ $attempt->quizAnswers->where('is_correct', false)->count() }}
-                </div>
-                <div class="text-[13px] text-[var(--muted)]">Wrong</div>
-            </div>
-
-            <div>
-                <div class="text-[18px] font-medium text-[var(--text)]">
-                    {{ $attempt->quizAnswers->count() }}
-                </div>
-                <div class="text-[13px] text-[var(--muted)]">Total</div>
-            </div>
-        </div>
-
-        <!-- Action Links -->
-        <div class="flex justify-center gap-4 mt-8">
-            <a href="/exams" class="text-[var(--muted)] hover:text-[var(--text)] transition-colors">
-                Back to Quizzes
-            </a>
-            @if(!$attempt->exam->max_attempts || \App\Models\QuizAttempt::where('user_id', auth()->id())->where('exam_id', $attempt->exam->id)->count() < $attempt->exam->max_attempts)
-                <a href="/exams/{{ $attempt->exam->id }}/take" class="btn-outline">
-                    Retake Quiz
-                </a>
             @endif
+
+            <!-- Stats Row -->
+            <div class="flex justify-center gap-8 pt-6 border-t border-[var(--border)]">
+                <div>
+                    <div class="text-[18px] font-medium" style="color: #16A34A">
+                        ✓ {{ $attempt->quizAnswers->where('is_correct', true)->count() }}
+                    </div>
+                    <div class="text-[13px] text-[var(--muted)]">Correct</div>
+                </div>
+
+                <div>
+                    <div class="text-[18px] font-medium" style="color: var(--danger)">
+                        ✗ {{ $attempt->quizAnswers->where('is_correct', false)->count() }}
+                    </div>
+                    <div class="text-[13px] text-[var(--muted)]">Wrong</div>
+                </div>
+
+                <div>
+                    <div class="text-[18px] font-medium text-[var(--text)]">
+                        {{ $attempt->quizAnswers->count() }}
+                    </div>
+                    <div class="text-[13px] text-[var(--muted)]">Total</div>
+                </div>
+            </div>
+
+            <!-- Action Links -->
+            <div class="flex justify-center gap-4 mt-8">
+                <a href="/exams" class="text-[var(--muted)] hover:text-[var(--text)] transition-colors">
+                    Back to Quizzes
+                </a>
+                @if(!$attempt->exam->max_attempts || \App\Models\QuizAttempt::where('user_id', auth()->id())->where('exam_id', $attempt->exam->id)->count() < $attempt->exam->max_attempts)
+                    <a href="/exams/{{ $attempt->exam->id }}/take" class="btn-outline">
+                        Retake Quiz
+                    </a>
+                @endif
+            </div>
         </div>
-    </div>
 
-    <!-- Question Review Section -->
-    <section>
-        <h2 class="text-[18px] font-medium text-[var(--text)] mb-6">Review</h2>
+        <!-- Question Review Section -->
+        <section>
+            <h2 class="text-[18px] font-medium text-[var(--text)] mb-6">Review</h2>
 
-        @if($attempt->quizAnswers->count() > 0)
-            <div class="space-y-0">
-                @foreach($attempt->quizAnswers as $index => $answer)
-                    <div
-                        class="py-5 border-b border-[var(--border)] pl-4"
-                        style="border-left: 3px solid {{ $answer->is_correct ? '#16A34A' : 'var(--danger)' }}"
-                    >
-                        <!-- Question Label -->
-                        <div class="text-[12px] text-[var(--muted)] uppercase mb-2">
-                            Q{{ $index + 1 }}
-                        </div>
-
-                        <!-- Question Text -->
-                        <div class="text-[15px] font-medium mb-3">
-                            {{ $answer->question->title }}
-                        </div>
-
-                        <p class="text-sm text-[var(--muted)] mb-3">
-                            {{ $answer->question->question_text }}
-                        </p>
-
-                        <!-- Answer Status -->
-                        @if($answer->is_correct)
-                            <div class="text-sm mb-2" style="color: #16A34A">
-                                ✓ Your answer: {{ $answer->option->option_text ?? 'N/A' }}
+            @if($attempt->quizAnswers->count() > 0)
+                <div class="space-y-0">
+                    @foreach($attempt->quizAnswers as $index => $answer)
+                        <div class="py-5 border-b border-[var(--border)] pl-4"
+                            style="border-left: 3px solid {{ $answer->is_correct ? '#16A34A' : 'var(--danger)' }}">
+                            <!-- Question Label -->
+                            <div class="text-[12px] text-[var(--muted)] uppercase mb-2">
+                                Q{{ $index + 1 }}
                             </div>
-                        @else
-                            <div class="text-sm mb-2" style="color: var(--danger)">
-                                ✗ Your answer: {{ $answer->option->option_text ?? 'N/A' }}
+
+                            <!-- Question Text -->
+                            <div class="text-[15px] font-medium mb-3">
+                                {{ $answer->question->title }}
                             </div>
-                            @if($answer->question->correctOption)
+
+                            <p class="text-sm text-[var(--muted)] mb-3">
+                                {{ $answer->question->question_text }}
+                            </p>
+
+                            <!-- Answer Status -->
+                            @if($answer->is_correct)
                                 <div class="text-sm mb-2" style="color: #16A34A">
-                                    ✓ Correct answer: {{ $answer->question->correctOption->option_text }}
+                                    ✓ Your answer: {{ $answer->option->option_text ?? 'N/A' }}
+                                </div>
+                            @else
+                                <div class="text-sm mb-2" style="color: var(--danger)">
+                                    ✗ Your answer: {{ $answer->option->option_text ?? 'N/A' }}
+                                </div>
+                                @if($answer->question->correctOption)
+                                    <div class="text-sm mb-2" style="color: #16A34A">
+                                        ✓ Correct answer: {{ $answer->question->correctOption->option_text }}
+                                    </div>
+                                @endif
+                            @endif
+
+                            <!-- Points -->
+                            <div class="text-xs text-[var(--muted)]">
+                                {{ $answer->points_earned }} / {{ $answer->question->points }} points
+                            </div>
+
+                            <!-- Explanation -->
+                            @if($answer->question->explanation)
+                                <div class="text-sm text-[var(--muted)] italic mt-3 p-3 bg-[var(--bg)] rounded">
+                                    {{ $answer->question->explanation }}
                                 </div>
                             @endif
-                        @endif
-
-                        <!-- Points -->
-                        <div class="text-xs text-[var(--muted)]">
-                            {{ $answer->points_earned }} / {{ $answer->question->points }} points
                         </div>
-
-                        <!-- Explanation -->
-                        @if($answer->question->explanation)
-                            <div class="text-sm text-[var(--muted)] italic mt-3 p-3 bg-[var(--bg)] rounded">
-                                {{ $answer->question->explanation }}
-                            </div>
-                        @endif
-                    </div>
-                @endforeach
-            </div>
-        @endif
-    </section>
-</div>
+                    @endforeach
+                </div>
+            @endif
+        </section>
+    </div>
 @endsection
