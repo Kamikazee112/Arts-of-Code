@@ -13,16 +13,18 @@ class AchievementController extends Controller
 {
     public function index()
     {
-        $user = Auth::user();
+        $userId = Auth::id();
 
         // Get all achievements with their categories
         $allAchievements = Achievement::with('category')->get();
 
         // Get user's earned achievement IDs using direct query
-        $earnedAchievementIds = DB::table('user_achievements')
-            ->where('user_id', $user->id)
-            ->pluck('achievement_id')
-            ->toArray();
+        $earnedAchievementIds = $userId
+            ? DB::table('user_achievements')
+                ->where('user_id', $userId)
+                ->pluck('achievement_id')
+                ->toArray()
+            : [];
 
         // Get earned achievements
         $earnedAchievements = $allAchievements->whereIn('id', $earnedAchievementIds);
@@ -48,13 +50,15 @@ class AchievementController extends Controller
     public function show($id)
     {
         $achievement = Achievement::with('category')->findOrFail($id);
-        $user = Auth::user();
+        $userId = Auth::id();
 
         // Check if user has earned this achievement using direct query
-        $hasEarned = DB::table('user_achievements')
-            ->where('user_id', $user->id)
-            ->where('achievement_id', $id)
-            ->exists();
+        $hasEarned = $userId
+            ? DB::table('user_achievements')
+                ->where('user_id', $userId)
+                ->where('achievement_id', $id)
+                ->exists()
+            : false;
 
         // Get users who have earned this achievement
         $earnerIds = DB::table('user_achievements')
